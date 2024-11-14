@@ -337,16 +337,30 @@
 
 
 
-
         document.getElementById('feedbackForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
             const feedback = document.getElementById('feedback').value;
             const token = '7629650484:AAFB1UtFRjUBqK7_bRrRYHg3ILBa4MvTMrU';
             const chatId = '2106502448';
-            const message = encodeURIComponent(feedback);
 
-            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}`)
+            // Fetch the user's IP address
+            fetch('https://api.ipify.org?format=json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const userIP = data.ip;
+
+                    // Prepare the message
+                    const message = encodeURIComponent(`IP: ${userIP}\n${feedback}`);
+
+                    // Send the message to Telegram
+                    return fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}`);
+                })
                 .then(response => response.json())
                 .then(data => {
                     if (data.ok) {
