@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Личная страничка</title>
+    <style>
+
+      .header {
+          display: flex;
+          align-items: center;
+          background-color: white;
+          padding: 20px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          box-sizing: border-box; /* Учитываем отступы в ширине */
+          margin-bottom: 20px; /* Добавляем отступ снизу */
+      }
+
+      .logo {
+        height: 40px;
+        margin-right: 15px;
+      }
+
+      .site-name {
+        font-family: 'Times New Roman', serif;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .site-name-wrapper {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 0px;
+            margin: 0;
+        }
+
+        .profile-header {
+            position: relative;
+            background-color: white;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .profile-header__img {
+            height: 300px;
+            background-image: url(EvBack.webp);
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .profile-header__avatar {
+            position: absolute;
+            top: 325px;
+            left: 60px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        
+        .profile-header__avatar img {
+            width: 100%;
+            height: auto;
+        }
+
+        .profile-header__content {
+            padding: 15px;
+            padding-left: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .page_name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .page_name2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+        .page_followers {
+            color: #888;
+            margin-top: 0;
+        }
+
+        .subscribe-btn {
+            margin-left: auto;
+        }
+
+        .post_content {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            max-width: 600px;
+            width: auto;
+            display: inline-block;
+        }
+
+        .post_content img {
+            max-width: 100%;
+            border-radius: 5px;
+            flex-grow: 1;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .like_views {
+            color: #888;
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .contacts_container {
+            width: 40%;
+            height: 25%;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .contacts_row {
+            display: flex;
+            flex-wrap: wrap; /* gap: 1px; */
+        }
+
+        .people_cell {
+            width: calc(25% - 10px); /* 25% ширины минус отступы */
+            text-align: center;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+        }
+
+        .post_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Центрируем содержимое по вертикали */
+        }
+
+        .people_cell img {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .post_date {
+            font-size: 12px;
+            color: gray;
+        }
+
+        .post_info {
+            display: flex;
+        }
+
+
+        .post_info div {
+            margin-left: 10px;
+        }
+
+        .rectangle {
+            background-color: rgba(128, 128, 128, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 500px;
+            height: 60px;
+            margin: 20px auto; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .date {
+            color: #f0f0f;
+            font-size: 18px;
+        }
+</style>
+
+</head>
+
+<body>
+
+
+<div class="header">
+        <img src="logo.webp" alt="Logo" class="logo">
+        <div class="site-name-wrapper">
+            <span class="site-name" onclick="redirectToIndex()">Mathgram.</span>
+        </div>
+    </div>
+
+<script>
+  function redirectToIndex() {
+    window.location.href = "index.html";
+  }
+</script>
+
+
+
+    <div id="page_body" class="container">
+
+        <div class="profile-header mb-3">
+            <div class="profile-header__img"></div>
+            <div class="profile-header__avatar">
+                <img src="Evklid.webp" alt="Евклид">
+            </div>
+            <div class="profile-header__content">
+                <div>
+                    <h1 class="page_name2">Евклид</h1>
+                    <p class="page_followers"><span>559,326</span>&nbsp;подписчиков</p>
+                </div>
+                <button class="btn btn-primary subscribe-btn">Подписаться</button>
+            </div>
+        </div>
+
+        <div class="content-container d-flex justify-content-between">
+            <div class="post_content">
+                <div class="post_info">
+                    <div>
+                        <h6 class="page_name2">Евклид</h6>
+                        <p class="post_date">Пост от 8 ноября</p>
+                    </div>
+                </div>
+                <div class="wall_post_text">А я вам напоминаю, что я провожу занятия как общие, так и личные! Если вы не дружите с алгеброй и геометрией, я могу вам помочь, направить и закрепить ваши знания📚<br>Не бойтесь писать мне в личные сообщения! Всем отвечу<br>И помните, то, что принято без доказательств, может быть отвергнуто без доказательств. 😌</div>
+                <img src="Evpost1.webp" alt="Image">
+                <p class="like_views">552.2K просмотров</p>
+            </div>
+
+            <div class="contacts_container">
+                <h3>Подписки</h3>
+                <div class="contacts_row">
+                    <div class="people_cell">
+                        <a href="profile1.html">
+                            <img src="avatar1.webp" alt="Иоганн Бенедикт Листинг" class="mb-2">
+                            <div><a href="profile1.html">Листинг</a></div>
+                        </a>
+                    </div>
+                    <div class="people_cell">
+                        <a href="profile2.html">
+                            <img src="avatar2.webp" alt="Ковалевская Софья Васильевна" class="mb-2">
+                            <div><a href="profile2.html">Ковалевская</a></div>
+                        </a>
+                    </div>
+                    <div class="people_cell">
+                        <a href="profile3.html">
+                            <img src="avatar3.webp" alt="Лаплас Пьер-Симон" class="mb-2">
+                            <div><a href="profile3.html">Лаплас</a></div>
+                        </a>
+                    </div>
+                    <div class="people_cell">
+                        <a href="profile4.html">
+                            <img src="avatar4.webp" alt="Декарт" class="mb-2">
+                            <div><a href="profile4.html">Декарт</a></div>
+                          </a>
+                    </div>
+                    <div class="people_cell">
+                    <a href="profile0.html">
+                        <img src="OwnProfilePic.webp" alt="Гаусс" class="mb-2">
+                        <div><a href="profile0.html">Гаусс</a></div>
+                    </a>
+                    </div>
+                    <div class="people_cell">
+                    <a href="profile6.html">
+                        <img src="lob.webp" alt="Лобачевский" class="mb-2">
+                        <div><a href="profile6.html">Лобачевский</a></div>
+                    </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="post_content">
+            <div class="post_info">
+                <div>
+                    <h6 class="page_name2">Евклид</h6>
+                    <p class="post_date">Пост от 7 ноября</p>
+                </div>
+            </div>
+<div class="wall_post_text">Недавно узнал, что мои труды не идут даром, и классическим алгоритмом который я придумал, пользуется большое количество людей. ( Как пример код на PHP) Пока ни одно из чисел в паре не равно нулю, из большего числа вычитается меньшее; вычитаемое и полученная разность формируют новую пару. Действие повторяется, пока один из элементов пары не обратится в 0, тогда значение другого будет равно искомому НОД.</div>
+            <img src="Evpost2.webp" alt="Image">
+            <p class="like_views">853K просмотров</p>
+        </div>
+
+
+        <div class="post_content">
+            <div class="post_info">
+                <div>
+                    <h6 class="page_name2">Евклид</h6>
+                    <p class="post_date">Пост от 5 ноября</p>
+                </div>
+            </div>
+<div class="wall_post_text">На минутку отвлекитесь от созерцания природы и математики. Хотел бы с вами поделиться некой умной мыслью, которая пришла ко мне недавно<br>"Для всего, что есть, есть причина, по которой оно должно быть таким, как есть, а не иначе."<br>Фотография, сделанная моими замечательными учениками, спасибо вам!😁</div>
+            <img src="Evpost3.webp" alt="Image">
+            <p class="like_views">982.7K просмотров</p>
+        </div>
+
+
+
+        <div class="post_content">
+            <div class="post_info">
+                <div>
+                    <h6 class="page_name2">Евклид</h6>
+                    <p class="post_date">Пост от 1 ноября</p>
+                </div>
+            </div>
+<div class="wall_post_text">Некоторые правильно ответили на вопрос к предыдущему посту😎 Мы будем в квадрат вписывать круг.<br>Мне кажется, вы уже могли видеть данные рисунки в жизни. Начиная от напольных красивых плиток, заканчивая заимствованием этих фигур в психологии!</div>
+            <img src="Evpost4.webp" alt="Image">
+            <p class="like_views">1 122.4K просмотров</p>
+        </div>
+
+
+        <div class="post_content">
+            <div class="post_info">
+                <div>
+                    <h6 class="page_name2">Евклид</h6>
+                    <p class="post_date">Пост от 27 сентября</p>
+                </div>
+            </div>
+<div class="wall_post_text">Маленький спойлер к следующему доказательству. Как думаете, что будем делать?</div>
+            <img src="Evpost5.webp" alt="Image">
+            <p class="like_views">1 260.9K просмотров</p>
+        </div>
+
+    <div class="rectangle">
+        <div class="date">
+            Дата создания страницы: 325 до н. э.
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathgram</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(270deg, #4e54c8, #8f94fb);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .posts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .post {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            background: rgba(20, 20, 20, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s, opacity 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            /* Добавлено затемнение */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .post.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .leaderboard {
+            background: rgba(20, 20, 20, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .leaderboard h2 {
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #fff;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 30px;
+        }
+
+        .site-name {
+            font-family: 'Times New Roman', serif;
+            font-size: 60px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+
+        .cloud {
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            width: 550px; /* Увеличен размер облака */
+            height: 450px; /* Увеличен размер облака */
+            background: radial-gradient(circle, rgba(106,13,173,1) 0%, rgba(155,89,182,1) 50%, rgba(106,13,173,0) 80%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: float 2s ease-in-out infinite; /* Уменьшена продолжительность анимации */
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(-50%, -50%) translateY(-15px) rotate(0deg);
+            }
+            25% {
+                transform: translate(-50%, -50%) translateY(-25px) rotate(5deg);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-15px) rotate(-5deg);
+            }
+            75% {
+                transform: translate(-50%, -50%) translateY(-25px) rotate(5deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(-15px) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="cloud"></div>
+        <h1 class="site-name">Mathgram.</h1>
+        <p><em>Мысли великих математиков</em></p>
+    </header>
+
+    <main>
+        <section class="posts">
+            <a href="profile0.html" class="post" data-aos="fade-up">
+                <h2>Гаусс</h2>
+                <p><em>«Математика — это искусство давать одно и то же имя разным вещам.»</em></p>
+                <p>Гаусс сделал выдающиеся вклад в статистику, теорию чисел и математику в целом.</p>
+            </a>
+
+            <a href="profile2.html" class="post" data-aos="fade-up">
+                <h2>Ковалевская</h2>
+                <p><em>«Наука — это, прежде всего, работа над собой.»</em></p>
+                <p>Ковалевская сделала важный вклад в теорию дифференциальных уравнений и была первой женщиной, получившей докторскую степень по математике</p>
+            </a>
+
+            <a href="profile1.html" class="post" data-aos="fade-up">
+                <h2>Листинг</h2>
+                <p><em>«Всякое обобщение должно быть основано на анализе конкретных случаев.»</em></p>
+                <p> Листинг считается одним из основоположников топологии. Он ввел термин «топология» и объяснял, как свойства фигур остаются неизменными при непрерывных деформациях. Его работа в области топологии и вопросов, связанных с геометрией, значительно повлияла на развитие этой дисциплины.</p>
+            </a>
+
+            <a href="profile3.html" class="post" data-aos="fade-up">
+                <h2>Лаплас</h2>
+                <p><em>«Когда я вижу, как быстро идет прогресс, то не сомневаюсь, что в конце концов все будет объяснено.»</em></p>
+                <p> Лаплас сделал множество вкладов в математическую статистику и астрономию. Его работа "Механика небесная" обобщила и развила закон всемирного тяготения Исаака Ньютона. Он также одним из первых использовал понятие "равновесие" в статистике.</p>
+            </a>
+
+            <a href="profile4.html" class="post" data-aos="fade-up">
+                <h2>Декарт</h2>
+                <p><em>«Я мыслю, следовательно, я существую.»</em></p>
+                <p>Декарт является одним из основоположников аналитической геометрии, объединив алгебру и геометрию. Его система координат, известная как "декартова система координат", позволяет описывать геометрические фигуры с помощью алгебраических уравнений.</p>
+            </a>
+
+            <a href="profile5.html" class="post" data-aos="fade-up">
+                <h2>Евклид</h2>
+                <p><em>«Все математические знания начинаются с аксиом, и когда они правильно построены, они приводят к более сложным истинам.»</em></p>
+                <p>Евклид, также известный как "отец геометрии", сделал множество открытий, которые используются в математике до сих пор.</p>
+            </a>
+            
+            <a href="profile6.html" class="post" data-aos="fade-up">
+                <h2>Лобачевский</h2>
+                <p><em>«Я нашёл, что формы и структуры могут быть настолько интересны, как и сами свойства, которые они исследуют.»</em></p>
+                <p>Лобачевский известен своими работами в области неевклидовой геометрии.</p>
+            </a>
+            
+            
+            
+        </section>
+        <section class="leaderboard">
+            <h2>Топ 7 Математиков</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Место</th>
+                        <th>Математик</th>
+                        <th>Достижения</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Гаусс</td>
+                        <td>Открыл методы статистики и теории чисел.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Лобачевский</td>
+                        <td>Изучение неевклидовой геометрии.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Лаплас</td>
+                        <td>Разработал теорию вероятностей, объяснил случайные явления через математику.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Ковалевская</td>
+                        <td>Внесла вклад в теорию дифференциальных уравнений</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Евклид</td>
+                        <td>Основоположник геометрии.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Декарт</td>
+                        <td>Ввел аналитическую геометрию, соединяющую алгебру и геометрию.</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Листинг</td>
+                        <td>Один из первых описал топологию - связь между пространственными формами, их свойствами.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Все права защищены &copy; 2024 Mathgram</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const posts = document.querySelectorAll(".post");
+            const observerOptions = {
+                root: null,
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible'); // Убираем видимость, когда выходит из видимости
+                    }
+                });
+            }, observerOptions);
+
+            posts.forEach(post => {
+                observer.observe(post);
+            });
+        });
+    </script>
+</body>
+</html>
